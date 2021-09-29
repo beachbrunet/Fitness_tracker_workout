@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 // What the user will be entering to make a workout
 // track workout: type: 'resistance',
@@ -49,6 +49,6 @@ const WorkoutSchema = new Schema ({
 ]
 }),
 
-const Workout = mongoose.model("workout, WorkoutSchema")
+const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;
