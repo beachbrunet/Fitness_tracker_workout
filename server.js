@@ -14,15 +14,15 @@ app.use(express.static("public"));
 
 // DB
 const db = require("./models");
-moongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/#", {
+moongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false,
 });
 
-require("./routes/#")(app);
-require("./routes/#")(app);
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
