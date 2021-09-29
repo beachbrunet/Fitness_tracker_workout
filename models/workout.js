@@ -14,15 +14,38 @@ const WorkoutSchema = new Schema ({
         type: Date,
         default: Date.now,
    },
-
    exercises: [{
+     // Trim is to insure strings you save through the schema are properly trimmed
         type: {
              type: String,
-             required: true
+             trim: true,
+             required: "Enter an exercise"
         },
         name: {
              type: String,
-             required: true,
-             match: ["Please enter a valid name."],
+             trim: true,
+             required: "Enter the exercise name"
         },
-        
+        duration: {
+             type: Number,
+             required: "Enter the duration of the exercise in mins"
+        },
+        weight: {
+          type: Number
+        },
+        reps: {
+          type: Number
+        },
+        sets: {
+          type: Number
+        },
+        distance: {
+          type: Number
+        }
+     }
+]
+}),
+
+const Workout = mongoose.model("workout, WorkoutSchema")
+
+module.exports = Workout;
