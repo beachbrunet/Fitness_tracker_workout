@@ -9,6 +9,8 @@ const schema = mongoose.Schema;
 // reps: 10,
 // sets: 4,
 
+// maybe want to use for better user experiance?
+// match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
 
 const WorkoutSchema = new Schema ({
     day: {
