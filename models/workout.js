@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
+// What the user will be entering to make a workout
 // track workout: type: 'resistance',
 // name: 'Bicep Curl',
 // duration: 20,
