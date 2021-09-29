@@ -5,29 +5,47 @@ const router = express.Router();
 //     res.json(err);
 //   });
 
-// call api - getWorkoutsInRange
+// call api - createWorkout
+// call api - getLastWorkout
+// get the data from the backend
+
+// Find/get workouts
 router.get("/api/workouts", (req, res) => {
   db.Workout.find({})
-    .then((workoutData) => {
-      res.json(workoutData);
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+// call api - getWorkoutsInRange
+router.get("/api/workouts/range", (req, res) => {
+  db.Workout.find({})
+    .then((data) => {
+      res.json(data);
     })
     .catch((err) => {
       res.json(err);
     });
 });
 
-// call api - createWorkout
-router.get("/api/workouts", (req, res) => {
-  db.Workout.find({})
-    .then((workoutData) => {
-      res.json(workoutData);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
-// call api - getLastWorkout
+// Example code:
+// app.get("/find/:id", (req, res) => {
+//     db.notes.findOne(
+//       {
+//         _id: mongojs.ObjectId(req.params.id)
+//       },
+//       (error, data) => {
+//         if (error) {
+//           res.send(error);
+//         } else {
+//           res.send(data);
+//         }
+//       }
+//     );
+//   });
+
 addExercise(data);
-// get the data from the backend
 
 module.exports = router;
