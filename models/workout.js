@@ -18,6 +18,11 @@ const WorkoutSchema = new Schema ({
    exercises: [{
         type: {
              type: String,
-             trim: true,
-             required: "Type of exercise is required."
+             required: true
         },
+        name: {
+             type: String,
+             required: true,
+             match: ["Please enter a valid name."],
+        },
+        
