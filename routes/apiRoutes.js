@@ -1,7 +1,7 @@
 // Add exercises to the most recent workout plan.
 // Add new exercises to a new workout plan.
 // View the combined weight of multiple exercises from the past
-//  seven workouts on the stats page.
+// seven workouts on the stats page.
 // View the total duration of each workout from
 // the past seven workouts on the stats page.
 const router = require("express").Router();
@@ -24,7 +24,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-// create/update workout
+// create workout
 router.post("/api/workouts", (req, res) => {
   Workout.create(req.body)
     .then((dbWorkout) => {
@@ -35,9 +35,11 @@ router.post("/api/workouts", (req, res) => {
     });
 });
 
+// Want to update object from the front end
 router.put("/api/workouts/id:", (req, res) => {
   db.Workout.findByIDAndUpdate(
     req.params.id,
+    // pushing array the new object to the front
     { $push: { exercises: req.body } },
     { new: true, runValidators: true }
   )
@@ -48,7 +50,9 @@ router.put("/api/workouts/id:", (req, res) => {
       res.status(400).json(err);
     });
 });
+// can I combine id, and range?
 
+// get workout data from range
 router.get("/api/workouts/range", (req, res) => {
   db.Workout.aggregate([
     {
