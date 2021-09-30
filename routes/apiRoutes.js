@@ -1,10 +1,9 @@
 // Add exercises to the most recent workout plan.
-
 // Add new exercises to a new workout plan.
-
-// View the combined weight of multiple exercises from the past seven workouts on the stats page.
-
-// View the total duration of each workout from the past seven workouts on the stats page.
+// View the combined weight of multiple exercises from the past
+//  seven workouts on the stats page.
+// View the total duration of each workout from 
+// the past seven workouts on the stats page.
 const router = require("express").Router();
 const db = require("../modles");
 
@@ -25,13 +24,8 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-// call api - add exercise
-router.get("/api/workouts", (req, res) => {});
-
-// call api - createWorkout
-router.post("/workouts", async function (req, res) {
-  console.log("apiRoutes POST /workouts req.body =", req.body);
-
+// create/update workout
+router.post("/api/workouts", (req, res) => {
   Workout.create(req.body)
     .then((dbWorkout) => {
       res.json(dbWorkout);
@@ -41,9 +35,42 @@ router.post("/workouts", async function (req, res) {
     });
 });
 
-// call api - getLastWorkout
 
-// call api - getWorkoutsInRange
+router.post("/api/workouts/id:", (req, res) => {
+    Workout.findByIDAndUpdate(req.params.id,
+        { $push: { exercises:req.body },
+        {new: true runValidators: true}
+    )
+    .then((dbWorkout) => {
+        res.json(dbWorkout);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
+  });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 router.get("/api/workouts/range", (req, res) => {
   db.Workout.aggregate([
     {
@@ -96,5 +123,16 @@ router.get("/api/workouts/range", (req, res) => {
 //       }
 //     });
 //   });
+
+// example code 2
+// const aggregate = Model.aggregate([
+//     { $project: { a: 1, b: 1 } },
+//     { $skip: 5 }
+//   ]);
+
+//   Model.
+//     aggregate([{ $match: { age: { $gte: 21 }}}]).
+//     unwind('tags').
+//     exec(callback);
 
 module.exports = router;
