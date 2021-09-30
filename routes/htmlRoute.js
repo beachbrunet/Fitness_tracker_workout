@@ -3,9 +3,7 @@ const router = require("express").Router();
 const path = require("path");
 // const router = require("./apiRoutes");
 
-// get method to bring user to the exercise page
-// and bring the user to the stats page
-// index html
+// get method to bring user to the exercise page and bring the user to the stats page index html
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
