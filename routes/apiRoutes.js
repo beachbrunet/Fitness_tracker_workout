@@ -31,12 +31,38 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
-// Add exercise api
+    // Add exercise api
 router.put('workouts/:id', (req,res) => {
-    req.params.id;
+    const workoutID = req.params.id;
+    console.log(workoutID);
+    console.log(req.body);
+    db.Workout.something (workoutID, { $push: { excercies: req.body}})
+        .then((dbWorkout) = > {
+            res.json(dbWorkout);
+        })
+        .catch((err) => {
+            res.json(err);
+          });
+    });
+
+    app.post("/api/workouts",({ body }) => {
+        console.log(`body ${body}`);
+
+        db.Workout.create()
+          .then((dbWorkout) => {
+            res.json(dbWorkout);
+          })
+          .catch((err) => {
+            res.json(err);
+          });
+      });
 
 
-}
+
+
+
+
+
 
 
 
