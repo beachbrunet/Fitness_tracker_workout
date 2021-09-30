@@ -1,5 +1,7 @@
 # Fitness Tracker Workout
 
+A application to view, create, and track a daily workout regime. The user is able to log multiple excercises in a workout on any given day. Not only that but they are able to track the name, type, weight, sets, reps, and duration of that specific exercise.
+
 ## Requirements
 
 <!-- ----------------------- -->
@@ -31,7 +33,18 @@ View the total duration of each workout from the past seven workouts on the stat
 - Morgan
 - Node.js
 
-## Resources
+## Resources and Dependancies
+
+<!-- ----------------------- -->
+
+- [Mongoose](https://www.npmjs.com/package/mongoose)<br />
+  command-line: `npm i mongoose`
+
+- [Morgan](https://www.npmjs.com/package/morgan)<br />
+  command-line: `npm i morgan`
+
+- [nodemon](https://www.npmjs.com/package/nodemon)<br />
+  command-line: `npm i nodemon`
 
 [MongoDB - addFields (aggregation)](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/)
 
