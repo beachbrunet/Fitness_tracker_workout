@@ -1,10 +1,13 @@
+// Add exercises to the most recent workout plan.
+
+// Add new exercises to a new workout plan.
+
+// View the combined weight of multiple exercises from the past seven workouts on the stats page.
+
+// View the total duration of each workout from the past seven workouts on the stats page.
+
 const db = require("../modles");
 const router = express.Router();
-
-// .catch((err) => {
-//     res.json(err);
-//   });
-
 // call api - createWorkout
 
 // call api - getLastWorkout
@@ -30,7 +33,7 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
-// Add exercise api
+// Add exercise api and insert into db
 router.put("workouts/:id", (req, res) => {
   const workoutID = req.params.id;
   console.log(workoutID);
@@ -44,9 +47,9 @@ router.put("workouts/:id", (req, res) => {
     });
 });
 
-app.post("/api/workouts", ({ body }) => {
-  console.log(`body ${body}`);
-
+// edited this to create a new workout
+router.post("/api/workouts", ({ body }, res) => {
+  console.log(body);
   db.Workout.create(body)
     .then((dbWorkout) => {
       res.json(dbWorkout);
