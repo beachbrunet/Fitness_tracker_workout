@@ -35,7 +35,7 @@ router.post("/api/workouts", (req, res) => {
     });
 });
 
-router.post("/api/workouts/id:", (req, res) => {
+router.put("/api/workouts/id:", (req, res) => {
   db.Workout.findByIDAndUpdate(
     req.params.id,
     { $push: { exercises: req.body } },
@@ -48,28 +48,6 @@ router.post("/api/workouts/id:", (req, res) => {
       res.status(400).json(err);
     });
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 router.get("/api/workouts/range", (req, res) => {
   db.Workout.aggregate([
@@ -86,32 +64,6 @@ router.get("/api/workouts/range", (req, res) => {
       res.json(err);
     });
 });
-
-// // Add exercise api and insert into db
-// router.put("workouts/:id", (req, res) => {
-//   const workoutID = req.params.id;
-//   console.log(workoutID);
-//   console.log(req.body);
-//   db.Workout.something(workoutID, { $push: { excercies: req.body } })
-//     .then((dbWorkout) => {
-//       res.json(dbWorkout);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
-
-// // edited this to create a new workout
-// router.post("/api/workouts", ({ body }, res) => {
-//   console.log(body);
-//   db.Workout.create(body)
-//     .then((dbWorkout) => {
-//       res.json(dbWorkout);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
 
 // example code
 // app.get("/name", (req, res) => {
