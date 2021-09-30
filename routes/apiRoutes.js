@@ -6,10 +6,11 @@ const router = express.Router();
 //   });
 
 // call api - createWorkout
-// call api - getLastWorkout
-// get the data from the backend
 
-// Find/get workouts
+// call api - getLastWorkout
+
+
+// Find/get workouts data from the backend
 router.get("/api/workouts", (req, res) => {
   db.Workout.find({})
     .then((data) => {
@@ -29,6 +30,15 @@ router.get("/api/workouts/range", (req, res) => {
       res.json(err);
     });
 });
+
+// Add exercise api
+router.put('workouts/:id', (req,res) => {
+    req.params.id;
+
+
+}
+
+
 
 // Example code:
 // app.get("/find/:id", (req, res) => {
