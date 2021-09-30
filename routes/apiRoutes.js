@@ -2,7 +2,7 @@
 // Add new exercises to a new workout plan.
 // View the combined weight of multiple exercises from the past
 //  seven workouts on the stats page.
-// View the total duration of each workout from 
+// View the total duration of each workout from
 // the past seven workouts on the stats page.
 const router = require("express").Router();
 const db = require("../modles");
@@ -35,19 +35,19 @@ router.post("/api/workouts", (req, res) => {
     });
 });
 
-
 router.post("/api/workouts/id:", (req, res) => {
-    Workout.findByIDAndUpdate(req.params.id,
-        { $push: { exercises:req.body },
-        {new: true runValidators: true}
-    )
+  db.Workout.findByIDAndUpdate(
+    req.params.id,
+    { $push: { exercises: req.body } },
+    { new: true, runValidators: true }
+  )
     .then((dbWorkout) => {
-        res.json(dbWorkout);
-      })
-      .catch((err) => {
-        res.status(400).json(err);
-      });
-  });
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
 //
 //
 //
