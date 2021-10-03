@@ -16,13 +16,9 @@ router.get("/api/workouts", (req, res) => {
         totalDuration: { $sum: "$exercises.duration" },
       },
     },
-  ])
-    .then((dbWorkout) => {
-      res.json(dbWorkout);
-    })
-    .catch((err) => {
-      res.status(400).json(err);
-    });
+  ]).catch((err) => {
+    res.status(400).json(err);
+  });
 });
 
 // create workout
@@ -39,7 +35,10 @@ router.post("/api/workouts", (req, res) => {
 // Want to update object from the front end
 router.put("/api/workouts/id:", (req, res) => {
   db.Workout.findByIDAndUpdate(
-    req.params.id,
+    {
+      _id: req.params.id,
+    },
+
     // pushing array the new object to the front
     { $push: { exercises: req.body } },
     { new: true, runValidators: true }
@@ -69,27 +68,5 @@ router.get("/api/workouts/range", (req, res) => {
       res.json(err);
     });
 });
-
-// example code
-// app.get("/name", (req, res) => {
-//     db.animals.find().sort({ name: 1 }, (err, found) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         res.json(found);
-//       }
-//     });
-//   });
-
-// example code 2
-// const aggregate = Model.aggregate([
-//     { $project: { a: 1, b: 1 } },
-//     { $skip: 5 }
-//   ]);
-
-//   Model.
-//     aggregate([{ $match: { age: { $gte: 21 }}}]).
-//     unwind('tags').
-//     exec(callback);
 
 module.exports = router;
