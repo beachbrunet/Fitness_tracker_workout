@@ -6,6 +6,7 @@
 // the past seven workouts on the stats page.
 const router = require("express").Router();
 const db = require("../models");
+// const mongoose = require("mongoose");
 
 // getting workout data
 router.get("/api/workouts", (req, res) => {
