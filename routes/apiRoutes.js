@@ -5,7 +5,7 @@
 // View the total duration of each workout from
 // the past seven workouts on the stats page.
 const router = require("express").Router();
-const db = require("../modles");
+const db = require("../models");
 
 // getting workout data
 router.get("/api/workouts", (req, res) => {
