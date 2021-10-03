@@ -38,7 +38,6 @@ router.put("/api/workouts/id:", (req, res) => {
     {
       _id: req.params.id,
     },
-
     // pushing array the new object to the front
     { $push: { exercises: req.body } },
     { new: true, runValidators: true }
