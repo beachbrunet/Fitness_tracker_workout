@@ -21,7 +21,8 @@ View the total duration of each workout from the past seven workouts on the stat
 
 <!-- ----------------------- -->
 
-![Screen Shot]()
+![Screen Shot](./assets/fitness.png)
+![Screen Shot](./assets/stats.png)
 
 ## Technologies
 
@@ -71,7 +72,7 @@ View the total duration of each workout from the past seven workouts on the stat
 
 <!-- ----------------------- -->
 
-URL to the github repo ()
+[URL to the github repo](https://github.com/beachbrunet/Fitness_tracker_workout)
 
 ## Contributions and Contact Information
 
