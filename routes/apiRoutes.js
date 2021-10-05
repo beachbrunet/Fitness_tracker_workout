@@ -22,6 +22,7 @@ router.get("/api/workouts/range", (req, res) => {
       },
     },
   ])
+    .sort({ _id: -1 })
     .then((data) => {
       res.json(data);
     })
