@@ -47,6 +47,9 @@ View the total duration of each workout from the past seven workouts on the stat
 - [nodemon](https://www.npmjs.com/package/nodemon)<br />
   command-line: `npm i nodemon`
 
+- [express](https://www.npmjs.com/package/express)<br />
+  command-line: `npm i express`
+
 [MongoDB - addFields (aggregation)](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/)
 
 [MongoDB - sumOperator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/)
