@@ -23,16 +23,17 @@ const workoutSchema = new Schema({
       type: {
         type: String,
         trim: true,
-        required: "Enter an exercise",
+        required: true,
       },
       name: {
         type: String,
         trim: true,
-        required: "Enter the exercise name",
+        required: true,
       },
       duration: {
         type: Number,
-        required: "Enter the duration of the exercise in mins",
+        trim: true,
+        required: true,
       },
       weight: {
         type: Number,
