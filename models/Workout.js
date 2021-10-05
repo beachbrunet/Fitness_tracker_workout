@@ -10,6 +10,7 @@ const Schema = mongoose.Schema;
 // sets: 4,
 
 // maybe want to use for better user experiance? example 11
+// --wouldnt be using email but makes the user enter vaild info
 // match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
 
 const workoutSchema = new Schema({
@@ -49,6 +50,13 @@ const workoutSchema = new Schema({
       },
     },
   ],
+});
+
+workoutSchema.virtual("totalDuration").get(function () {
+  const duration = this.exercises.reduce((total, exercise) => {
+    return total + exercise.duration;
+  }, 0);
+  return duration;
 });
 
 const Workout = mongoose.model("Workout", workoutSchema);
