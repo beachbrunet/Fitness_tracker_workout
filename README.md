@@ -68,7 +68,7 @@ View the total duration of each workout from the past seven workouts on the stat
 
 <!-- ----------------------- -->
 
-[Heroku](https://something.herokuapp.com)
+[Heroku](https://mysterious-river-96466.herokuapp.com/)
 
 <!-- mysterious-river-96466 -->
 
