@@ -1,2 +1,2 @@
 // export an object that contains the models
-module.exports = { Workout: require("./models/Workout") };
+module.exports = { Workout: require("./Workout") };
