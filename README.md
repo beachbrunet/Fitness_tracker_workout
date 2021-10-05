@@ -55,7 +55,6 @@ View the total duration of each workout from the past seven workouts on the stat
 
 ## Helpful Links
 
-- [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
 - [MongoDB Website](https://www.mongodb.com/)
 - [Robo 3T Website](https://robomongo.org/download)
 - [MongoJS Documentation](https://www.npmjs.com/package/mongojs)
@@ -67,6 +66,7 @@ View the total duration of each workout from the past seven workouts on the stat
 <!-- ----------------------- -->
 
 [Heroku](https://something.herokuapp.com)
+desolate-headland-66556
 
 ## Application
 
