@@ -8,17 +8,43 @@ const router = require("express").Router();
 const db = require("../models");
 // const mongoose = require("mongoose");
 
-// getting workout data
-router.get("/api/workouts", (req, res) => {
+// get workout data from range
+router.get("/api/workouts/range", (req, res) => {
+  db.Workout.aggregate([
+    {
+      // from /public/workout
+      $addFields: {
+        totalDuration: { $sum: "$exercises.duration" },
+        totalWeight: { $sum: "$exercises.weight" },
+        totalSets: { $sum: "$exercises.sets" },
+        totalReps: { $sum: "$exercises.reps" },
+        totalDistance: { $sum: "$exercises.distance" },
+      },
+    },
+  ])
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+// getting last workout data
+router.get("/api/workouts", async (req, res) => {
   db.Workout.aggregate([
     {
       $addFields: {
         totalDuration: { $sum: "$exercises.duration" },
       },
     },
-  ]).catch((err) => {
-    res.status(400).json(err);
-  });
+  ])
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
 });
 
 // create workout
@@ -50,26 +76,5 @@ router.put("/api/workouts/id:", (req, res) => {
     });
 });
 // can I combine id, and range?
-
-// get workout data from range
-router.get("/api/workouts/range", (req, res) => {
-  db.Workout.aggregate([
-    {
-      $addFields: {
-        totalDuration: { $sum: "$exercises.duration" },
-        totalWeight: { $sum: "$exercises.weight" },
-        totalSets: { $sum: "$exercises.sets" },
-        totalReps: { $sum: "$exercises.reps" },
-        totalDistance: { $sum: "$exercises.distance" },
-      },
-    },
-  ])
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
 
 module.exports = router;
