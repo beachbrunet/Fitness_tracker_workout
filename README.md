@@ -84,6 +84,5 @@ View the total duration of each workout from the past seven workouts on the stat
 
 ```
 Catherine Cox
-
 ccox.034@gmail.com
 ```

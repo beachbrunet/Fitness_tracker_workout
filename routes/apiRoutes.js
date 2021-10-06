@@ -32,7 +32,7 @@ router.get("/api/workouts/range", (req, res) => {
 });
 
 // getting last workout data
-router.get("/api/workouts", async (req, res) => {
+router.get("/api/workouts", (req, res) => {
   db.Workout.aggregate([
     {
       $addFields: {
@@ -60,8 +60,9 @@ router.post("/api/workouts", (req, res) => {
 });
 
 // Want to update object from the front end
-router.put("/api/workouts/id:", (req, res) => {
-  db.Workout.findByIDAndUpdate(
+router.put("/api/workouts/:id", (req, res) => {
+  // console.log(req.params);
+  db.Workout.findByIdAndUpdate(
     {
       _id: req.params.id,
     },
