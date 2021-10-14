@@ -23,6 +23,7 @@ View the total duration of each workout from the past seven workouts on the stat
 
 ![Screen Shot](./assets/fitness.png)
 ![Screen Shot](./assets/stats.png)
+[Video Demostration HERE!](https://www.youtube.com/watch?v=4z_cVmWalCE)
 
 ## Technologies
 
@@ -55,6 +56,13 @@ View the total duration of each workout from the past seven workouts on the stat
 [MongoDB - sumOperator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/)
 
 [MongoDB - aggregateFunctions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate)
+
+## Getting Started
+
+- In order to get started you will need to set the enviorment variable `MONGODB_URI` set correctly. <br />
+  For example if deploying to Heroku set `Config Vars` in the setting page.
+
+-Note you will need to ensure Heroku instance can access mongodb server by adjusting the atlas cluster network access rules.
 
 ## Helpful Links
 
